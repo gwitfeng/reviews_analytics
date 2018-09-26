@@ -31,3 +31,33 @@ for d in data:
 print('一共有 ', len(good), '筆留言有說到 good ')
 
 print(good[0])
+
+
+# 文字計數
+
+wc = {}
+for d in data :
+    words = d.split()
+    for word in words :
+        if word in wc :
+            wc[word] += 1
+        else :
+            wc[word] = 1 # 新增資料
+
+for word in wc :
+    if wc[word] > 1000000 :
+        print(word, wc[word])
+
+print(len(wc))    
+
+while True :
+    word = input('請輸入你要查的字')  
+    if word == 'q' :
+        break
+    if word in wc :
+        print(word, '出現了', wc[word],'次')
+    else:
+        print('此字未曾出現')
+        break       
+print('感謝使用本查詢功能')
+
